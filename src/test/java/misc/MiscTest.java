@@ -10,6 +10,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static java.util.Arrays.asList;
@@ -90,4 +92,58 @@ public class MiscTest {
       .forEach(System.out::println);
   }
 
+  @Test
+  public void Collectors_toListTest() throws Exception {
+    // Setup
+    // Exercise
+    List<Integer> odds = IntStream.iterate(0, n -> n + 1)
+      .limit(10)
+      .mapToObj(n -> n * 2)
+      .collect(Collectors.toList());
+    // Verify
+    System.out.println(odds);
+  }
+
+  @Test
+  public void Collectors_joiningTest() throws Exception {
+    List<String> texts = Arrays.asList("a", "b", "c");
+
+    // 要素を単純に連結
+    String joinedText1 = texts.stream()
+      .collect(Collectors.joining());
+    System.out.println(joinedText1); // abc
+
+    // 要素間の文字列を指定
+    String joinedText2 = texts.stream()
+      .collect(Collectors.joining(":"));
+    System.out.println(joinedText2); // a:b:c
+
+    // 要素間の文字列に加え、最初と最後の文字列を指定
+    String joinedText3 = texts.stream()
+      .collect(Collectors.joining(", ", "[", "]"));
+    System.out.println(joinedText3); // [a, b, c]
+  }
+
+  @Test
+  public void Collectors_groupingByTest() throws Exception {
+    // Setup
+    List<String> words = Arrays.asList("alpha", "beta", "apple", "bridge", "application");
+
+    // Exercise
+    Map<String, List<String>> groups1
+      = words.stream()
+      .collect(Collectors.groupingBy(w -> w.substring(0, 1)));
+
+    // Verify
+    System.out.println(groups1);
+
+    Map<String, Long> groups2
+      = words.stream()
+      .collect(Collectors.groupingBy(
+        w -> w.substring(0, 1),
+        Collectors.counting()));
+
+    // Verify
+    System.out.println(groups2);
+  }
 }
