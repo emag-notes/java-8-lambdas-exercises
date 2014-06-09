@@ -59,7 +59,7 @@ public class Refactor {
         .forEach(album -> {
           album.getTracks()
             .filter(track -> track.getLength() > 60)
-            .map(track -> track.getName())
+            .map(track -> track.getName()) // 今の時点で map する必要はない(Step4 で collect するときの布石)
             .forEach(name -> trackNames.add(name));
         });
       return trackNames;
