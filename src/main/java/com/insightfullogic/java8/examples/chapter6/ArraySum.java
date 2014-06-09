@@ -19,45 +19,45 @@ import static java.util.stream.Collectors.toList;
 @BenchmarkMode(Mode.AverageTime)
 public class ArraySum {
 
-    public static void main(String[] ignore) throws IOException, RunnerException {
-        final String[] args = {
-            ".*ArraySum.*",
-            "-wi",
-            "5",
-            "-i",
-            "5"
-        };
-        Main.main(args);
-    }
+  public static void main(String[] ignore) throws IOException, RunnerException {
+    final String[] args = {
+      ".*ArraySum.*",
+      "-wi",
+      "5",
+      "-i",
+      "5"
+    };
+    Main.main(args);
+  }
 
-    public List<Album> albums;
+  public List<Album> albums;
 
-    @Setup
-    public void initAlbums() {
-        int n = Integer.getInteger("arraysum.size", 1000);
-        albums = IntStream.range(0, n)
-                          .mapToObj(i -> SampleData.aLoveSupreme.copy())
-                          .collect(toList());
-    }
+  @Setup
+  public void initAlbums() {
+    int n = Integer.getInteger("arraysum.size", 1000);
+    albums = IntStream.range(0, n)
+      .mapToObj(i -> SampleData.aLoveSupreme.copy())
+      .collect(toList());
+  }
 
-    @GenerateMicroBenchmark
-    // BEGIN serial
-public int serialArraySum() {
+  @GenerateMicroBenchmark
+  // BEGIN serial
+  public int serialArraySum() {
     return albums.stream()
-                 .flatMap(Album::getTracks)
-                 .mapToInt(Track::getLength)
-                 .sum();
-}
-    // END serial
+      .flatMap(Album::getTracks)
+      .mapToInt(Track::getLength)
+      .sum();
+  }
+  // END serial
 
-    @GenerateMicroBenchmark
-    // BEGIN parallel
-public int parallelArraySum() {
+  @GenerateMicroBenchmark
+  // BEGIN parallel
+  public int parallelArraySum() {
     return albums.parallelStream()
-                 .flatMap(Album::getTracks)
-                 .mapToInt(Track::getLength)
-                 .sum();
-}
-    // END parallel
-    
+      .flatMap(Album::getTracks)
+      .mapToInt(Track::getLength)
+      .sum();
+  }
+  // END parallel
+
 }

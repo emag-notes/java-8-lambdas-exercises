@@ -10,7 +10,7 @@ import static java.lang.ThreadLocal.withInitial;
 
 public class Question2 {
 
-    public static ThreadLocal<SimpleDateFormat> formatter
-            = Exercises.replaceThisWithSolution();
+  public static ThreadLocal<SimpleDateFormat> formatter
+    = Exercises.replaceThisWithSolution();
 
 }

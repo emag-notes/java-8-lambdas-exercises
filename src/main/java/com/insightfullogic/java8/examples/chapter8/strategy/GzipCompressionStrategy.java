@@ -7,10 +7,10 @@ import java.util.zip.GZIPOutputStream;
 // BEGIN GzipCompressionStrategy
 public class GzipCompressionStrategy implements CompressionStrategy {
 
-    @Override
-    public OutputStream compress(OutputStream data) throws IOException {
-        return new GZIPOutputStream(data);
-    }
+  @Override
+  public OutputStream compress(OutputStream data) throws IOException {
+    return new GZIPOutputStream(data);
+  }
 
 }
 // END GzipCompressionStrategy

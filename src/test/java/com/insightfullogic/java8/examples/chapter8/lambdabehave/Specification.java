@@ -5,7 +5,7 @@ import com.insightfullogic.java8.examples.chapter8.lambdabehave.expectations.Exp
 // BEGIN Specification
 public interface Specification {
 
-    public void specifyBehaviour(Expect expect);
+  public void specifyBehaviour(Expect expect);
 
 }
 // END Specification

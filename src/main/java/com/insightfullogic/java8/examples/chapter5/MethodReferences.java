@@ -17,18 +17,18 @@ import static java.util.stream.Collectors.groupingBy;
 
 public class MethodReferences {
 
-    public Map<Artist, List<Album>> albumsByArtist(Stream<Album> albums) {
-        return albums.collect(groupingBy(Album::getMainMusician));
-    }
+  public Map<Artist, List<Album>> albumsByArtist(Stream<Album> albums) {
+    return albums.collect(groupingBy(Album::getMainMusician));
+  }
 
-    private static final Pattern SPACES = Pattern.compile("\\w+");
+  private static final Pattern SPACES = Pattern.compile("\\w+");
 
-    public static Map<String, Long> countWordsIn(Path path) throws IOException {
-        Stream<String> words = Files.readAllLines(path, defaultCharset())
-                                    .stream()
-                                    .flatMap(SPACES::splitAsStream);
+  public static Map<String, Long> countWordsIn(Path path) throws IOException {
+    Stream<String> words = Files.readAllLines(path, defaultCharset())
+      .stream()
+      .flatMap(SPACES::splitAsStream);
 
-        return countWords(words);
-    }
+    return countWords(words);
+  }
 
 }

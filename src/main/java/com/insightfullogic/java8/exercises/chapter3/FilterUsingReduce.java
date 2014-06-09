@@ -12,8 +12,8 @@ import java.util.stream.Stream;
  */
 public class FilterUsingReduce {
 
-    public static <I> List<I> filter(Stream<I> stream, Predicate<I> predicate) {
-        return Exercises.replaceThisWithSolution();
-    }
+  public static <I> List<I> filter(Stream<I> stream, Predicate<I> predicate) {
+    return Exercises.replaceThisWithSolution();
+  }
 
 }

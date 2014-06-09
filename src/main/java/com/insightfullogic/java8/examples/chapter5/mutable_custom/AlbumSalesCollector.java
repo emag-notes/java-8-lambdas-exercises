@@ -10,35 +10,36 @@ import java.util.stream.Collector;
 
 public class AlbumSalesCollector implements Collector<AlbumSale, AlbumSalesReport, AlbumSalesReport> {
 
-    private static final Set<Characteristics> characteristics = new HashSet<>();
-    static {
-        characteristics.add(Characteristics.UNORDERED);
-        characteristics.add(Characteristics.IDENTITY_FINISH);
-    }
+  private static final Set<Characteristics> characteristics = new HashSet<>();
 
-    @Override
-    public Supplier<AlbumSalesReport> supplier() {
-        return AlbumSalesReport::new;
-    }
+  static {
+    characteristics.add(Characteristics.UNORDERED);
+    characteristics.add(Characteristics.IDENTITY_FINISH);
+  }
 
-    @Override
-    public BiConsumer<AlbumSalesReport, AlbumSale> accumulator() {
-        return (report, album) -> report.acknowledgeSale(album);
-    }
+  @Override
+  public Supplier<AlbumSalesReport> supplier() {
+    return AlbumSalesReport::new;
+  }
 
-    @Override
-    public BinaryOperator<AlbumSalesReport> combiner() {
-        return (left, right) -> left.merge(right);
-    }
+  @Override
+  public BiConsumer<AlbumSalesReport, AlbumSale> accumulator() {
+    return (report, album) -> report.acknowledgeSale(album);
+  }
 
-    @Override
-    public Function<AlbumSalesReport, AlbumSalesReport> finisher() {
-        return Function.identity();
-    }
+  @Override
+  public BinaryOperator<AlbumSalesReport> combiner() {
+    return (left, right) -> left.merge(right);
+  }
 
-    @Override
-    public Set<Characteristics> characteristics() {
-        return characteristics;
-    }
+  @Override
+  public Function<AlbumSalesReport, AlbumSalesReport> finisher() {
+    return Function.identity();
+  }
+
+  @Override
+  public Set<Characteristics> characteristics() {
+    return characteristics;
+  }
 
 }

@@ -16,31 +16,31 @@ import static org.junit.Assert.assertTrue;
 
 public class RefactorTest {
 
-    @Test
-    public void allStringJoins() {
-        List<Supplier<Refactor.LongTrackFinder>> finders = Arrays.<Supplier<Refactor.LongTrackFinder>>asList(
-            Refactor.Step0::new,
-            Refactor.Step1::new,
-            Refactor.Step2::new,
-            Refactor.Step3::new,
-            Refactor.Step4::new
-        );
+  @Test
+  public void allStringJoins() {
+    List<Supplier<Refactor.LongTrackFinder>> finders = Arrays.<Supplier<Refactor.LongTrackFinder>>asList(
+      Refactor.Step0::new,
+      Refactor.Step1::new,
+      Refactor.Step2::new,
+      Refactor.Step3::new,
+      Refactor.Step4::new
+    );
 
-        List<Album> albums = unmodifiableList(asList(SampleData.aLoveSupreme, SampleData.sampleShortAlbum));
-        List<Album> noTracks = unmodifiableList(asList(SampleData.sampleShortAlbum));
+    List<Album> albums = unmodifiableList(asList(SampleData.aLoveSupreme, SampleData.sampleShortAlbum));
+    List<Album> noTracks = unmodifiableList(asList(SampleData.sampleShortAlbum));
 
-        finders.forEach(finder -> {
-            System.out.println("Testing: " + finder.toString());
+    finders.forEach(finder -> {
+      System.out.println("Testing: " + finder.toString());
 
-            Refactor.LongTrackFinder longTrackFinder = finder.get();
-            Set<String> longTracks = longTrackFinder.findLongTracks(albums);
+      Refactor.LongTrackFinder longTrackFinder = finder.get();
+      Set<String> longTracks = longTrackFinder.findLongTracks(albums);
 
-            assertEquals("[Acknowledgement, Resolution]", longTracks.toString());
+      assertEquals("[Acknowledgement, Resolution]", longTracks.toString());
 
-            longTracks = longTrackFinder.findLongTracks(noTracks);
+      longTracks = longTrackFinder.findLongTracks(noTracks);
 
-            assertTrue(longTracks.isEmpty());
-        });
-    }
+      assertTrue(longTracks.isEmpty());
+    });
+  }
 
 }

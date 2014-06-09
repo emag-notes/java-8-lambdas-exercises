@@ -8,36 +8,36 @@ import java.util.List;
 
 public class OrderImperative extends Order {
 
-    public OrderImperative(List<Album> albums) {
-        super(albums);
-    }
+  public OrderImperative(List<Album> albums) {
+    super(albums);
+  }
 
-    // BEGIN body
-public long countRunningTime() {
+  // BEGIN body
+  public long countRunningTime() {
     long count = 0;
     for (Album album : albums) {
-        for (Track track : album.getTrackList()) {
-            count += track.getLength();
-        }
+      for (Track track : album.getTrackList()) {
+        count += track.getLength();
+      }
     }
     return count;
-}
+  }
 
-public long countMusicians() {
+  public long countMusicians() {
     long count = 0;
     for (Album album : albums) {
-        count += album.getMusicianList().size();
+      count += album.getMusicianList().size();
     }
     return count;
-}
+  }
 
-public long countTracks() {
+  public long countTracks() {
     long count = 0;
     for (Album album : albums) {
-        count += album.getTrackList().size();
+      count += album.getTrackList().size();
     }
     return count;
-}
-    // END body
+  }
+  // END body
 
 }

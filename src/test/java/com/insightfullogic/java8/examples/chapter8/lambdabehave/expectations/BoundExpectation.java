@@ -4,14 +4,14 @@ import static org.junit.Assert.assertEquals;
 
 public class BoundExpectation {
 
-    private final Object objectUnderTest;
+  private final Object objectUnderTest;
 
-    public BoundExpectation(Object value) {
-        this.objectUnderTest = value;
-    }
-    
-    public void isEqualTo(Object expected) {
-        assertEquals(expected, objectUnderTest);
-    }
+  public BoundExpectation(Object value) {
+    this.objectUnderTest = value;
+  }
+
+  public void isEqualTo(Object expected) {
+    assertEquals(expected, objectUnderTest);
+  }
 
 }

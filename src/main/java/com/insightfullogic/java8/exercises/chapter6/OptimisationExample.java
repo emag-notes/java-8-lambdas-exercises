@@ -18,46 +18,46 @@ import java.util.stream.IntStream;
 @BenchmarkMode(Mode.AverageTime)
 public class OptimisationExample {
 
-    public static void main(String[] ignore) throws IOException, RunnerException {
-        final String[] args = {
-                ".*OptimisationExample.*",
-                "-wi",
-                "10",
-                "-i",
-                "10",
-                "-f",
-                "1"
-        };
-        Main.main(args);
-    }
+  public static void main(String[] ignore) throws IOException, RunnerException {
+    final String[] args = {
+      ".*OptimisationExample.*",
+      "-wi",
+      "10",
+      "-i",
+      "10",
+      "-f",
+      "1"
+    };
+    Main.main(args);
+  }
 
-    private List<Integer> linkedListOfNumbers;
+  private List<Integer> linkedListOfNumbers;
 
-    @Setup
-    public void init() {
-        linkedListOfNumbers = new LinkedList<>();
-        addNumbers(linkedListOfNumbers);
+  @Setup
+  public void init() {
+    linkedListOfNumbers = new LinkedList<>();
+    addNumbers(linkedListOfNumbers);
 
-        // TODO: put any additional setup code here
-    }
+    // TODO: put any additional setup code here
+  }
 
-    private void addNumbers(List<Integer> container) {
-        IntStream.range(0, 1_000_000)
-                 .forEach(container::add);
-    }
+  private void addNumbers(List<Integer> container) {
+    IntStream.range(0, 1_000_000)
+      .forEach(container::add);
+  }
 
-    @GenerateMicroBenchmark
-    // BEGIN slowSumOfSquares
-    public int slowSumOfSquares() {
-        return linkedListOfNumbers.parallelStream()
-                                  .map(x -> x * x)
-                                  .reduce(0, (acc, x) -> acc + x);
-    }
-    // END slowSumOfSquares
+  @GenerateMicroBenchmark
+  // BEGIN slowSumOfSquares
+  public int slowSumOfSquares() {
+    return linkedListOfNumbers.parallelStream()
+      .map(x -> x * x)
+      .reduce(0, (acc, x) -> acc + x);
+  }
+  // END slowSumOfSquares
 
-    @GenerateMicroBenchmark
-    public int fastSumOfSquares() {
-        return Exercises.replaceThisWithSolution();
-    }
+  @GenerateMicroBenchmark
+  public int fastSumOfSquares() {
+    return Exercises.replaceThisWithSolution();
+  }
 
 }

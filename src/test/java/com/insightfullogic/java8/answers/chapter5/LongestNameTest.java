@@ -9,16 +9,16 @@ import static org.junit.Assert.assertEquals;
 
 public class LongestNameTest {
 
-    @Test
-    public void findsLongestNameByReduce() {
-        Artist artist = com.insightfullogic.java8.answers.chapter5.LongestName.byReduce(SampleData.getThreeArtists());
-        assertEquals(SampleData.johnColtrane, artist);
-    }
+  @Test
+  public void findsLongestNameByReduce() {
+    Artist artist = com.insightfullogic.java8.answers.chapter5.LongestName.byReduce(SampleData.getThreeArtists());
+    assertEquals(SampleData.johnColtrane, artist);
+  }
 
-    @Test
-    public void findsLongestNameByCollecting() {
-        Artist artist = LongestName.byCollecting(SampleData.getThreeArtists());
-        assertEquals(SampleData.johnColtrane, artist);
-    }
+  @Test
+  public void findsLongestNameByCollecting() {
+    Artist artist = LongestName.byCollecting(SampleData.getThreeArtists());
+    assertEquals(SampleData.johnColtrane, artist);
+  }
 
 }

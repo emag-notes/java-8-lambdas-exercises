@@ -14,24 +14,24 @@ import static org.junit.Assert.assertThat;
 
 public class PerformanceTest {
 
-    @Test
-    public void findsAllTheBeatles() {
-        PerformanceFixed stub = new PerformanceFixed() {
-            @Override
-            public String getName() {
-                throw new UnsupportedOperationException();
-            }
+  @Test
+  public void findsAllTheBeatles() {
+    PerformanceFixed stub = new PerformanceFixed() {
+      @Override
+      public String getName() {
+        throw new UnsupportedOperationException();
+      }
 
-            @Override
-            public Stream<Artist> getMusicians() {
-                return Stream.of(SampleData.theBeatles);
-            }
-        };
+      @Override
+      public Stream<Artist> getMusicians() {
+        return Stream.of(SampleData.theBeatles);
+      }
+    };
 
-        List<Artist> allMusicians = stub.getAllMusicians().collect(toList());
-        assertThat(allMusicians, hasItem(SampleData.theBeatles));
-        // There really must be a better way than this
-        assertThat(allMusicians, hasItems(SampleData.membersOfTheBeatles.toArray(new Artist[0])));
-    }
+    List<Artist> allMusicians = stub.getAllMusicians().collect(toList());
+    assertThat(allMusicians, hasItem(SampleData.theBeatles));
+    // There really must be a better way than this
+    assertThat(allMusicians, hasItems(SampleData.membersOfTheBeatles.toArray(new Artist[0])));
+  }
 
 }

@@ -7,11 +7,11 @@ import org.junit.Test;
 
 public class TraditionalTest {
 
-    @Test
-    public void fitsTogether() throws ApplicationDenied {
-        new CompanyLoanApplication().checkLoanApplication();
-        new PersonalLoanApplication().checkLoanApplication();
-        new EmployeeLoanApplication().checkLoanApplication();
-    }
+  @Test
+  public void fitsTogether() throws ApplicationDenied {
+    new CompanyLoanApplication().checkLoanApplication();
+    new PersonalLoanApplication().checkLoanApplication();
+    new EmployeeLoanApplication().checkLoanApplication();
+  }
 
 }

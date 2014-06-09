@@ -7,16 +7,16 @@ import static org.junit.Assert.assertTrue;
 
 public class BlockingArtistAnalyzerTest {
 
-    private final BlockingArtistAnalyzer analyser = new BlockingArtistAnalyzer(new FakeLookupService()::lookupArtistName);
+  private final BlockingArtistAnalyzer analyser = new BlockingArtistAnalyzer(new FakeLookupService()::lookupArtistName);
 
-    @Test
-    public void largerGroupsAreLarger() {
-        assertTrue(analyser.isLargerGroup("The Beatles", "John Coltrane"));
-    }
+  @Test
+  public void largerGroupsAreLarger() {
+    assertTrue(analyser.isLargerGroup("The Beatles", "John Coltrane"));
+  }
 
-    @Test
-    public void smallerGroupsArentLarger() {
-        assertFalse(analyser.isLargerGroup("John Coltrane", "The Beatles"));
-    }
+  @Test
+  public void smallerGroupsArentLarger() {
+    assertFalse(analyser.isLargerGroup("John Coltrane", "The Beatles"));
+  }
 
 }

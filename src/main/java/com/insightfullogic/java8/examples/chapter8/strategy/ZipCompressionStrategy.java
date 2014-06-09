@@ -7,10 +7,10 @@ import java.util.zip.ZipOutputStream;
 // BEGIN ZipCompressionStrategy
 public class ZipCompressionStrategy implements CompressionStrategy {
 
-    @Override
-    public OutputStream compress(OutputStream data) throws IOException {
-        return new ZipOutputStream(data);
-    }
+  @Override
+  public OutputStream compress(OutputStream data) throws IOException {
+    return new ZipOutputStream(data);
+  }
 
 }
 // END ZipCompressionStrategy

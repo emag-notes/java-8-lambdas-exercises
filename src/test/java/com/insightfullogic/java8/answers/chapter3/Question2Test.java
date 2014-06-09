@@ -10,9 +10,9 @@ import static org.junit.Assert.assertEquals;
 
 public class Question2Test {
 
-    @Test
-    public void internal() {
-        assertEquals(4, countBandMembersInternal(Arrays.asList(SampleData.johnColtrane, SampleData.theBeatles)));
-    }
+  @Test
+  public void internal() {
+    assertEquals(4, countBandMembersInternal(Arrays.asList(SampleData.johnColtrane, SampleData.theBeatles)));
+  }
 
 }

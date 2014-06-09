@@ -13,13 +13,13 @@ import static junit.framework.Assert.assertEquals;
 
 public class TestPerformance {
 
-    @Test
-    public void allMembers() {
-        Album album = new Album("foo", Collections.<Track>emptyList(), singletonList(theBeatles));
-        Set<Artist> musicians = album.getAllMusicians().collect(toSet());
-        Set<Artist> expectedMusicians = new HashSet<>(SampleData.membersOfTheBeatles);
-        expectedMusicians.add(theBeatles);
-        assertEquals(expectedMusicians, musicians);
-    }
+  @Test
+  public void allMembers() {
+    Album album = new Album("foo", Collections.<Track>emptyList(), singletonList(theBeatles));
+    Set<Artist> musicians = album.getAllMusicians().collect(toSet());
+    Set<Artist> expectedMusicians = new HashSet<>(SampleData.membersOfTheBeatles);
+    expectedMusicians.add(theBeatles);
+    assertEquals(expectedMusicians, musicians);
+  }
 
 }

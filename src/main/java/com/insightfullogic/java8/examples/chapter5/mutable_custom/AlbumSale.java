@@ -4,25 +4,25 @@ import com.insightfullogic.java8.examples.chapter1.Album;
 
 public final class AlbumSale {
 
-    private final Album album;
-    private final Customer customer;
-    private final long price;
+  private final Album album;
+  private final Customer customer;
+  private final long price;
 
-    public AlbumSale(Album album, Customer customer, long price) {
-        this.album = album;
-        this.customer = customer;
-        this.price = price;
-    }
+  public AlbumSale(Album album, Customer customer, long price) {
+    this.album = album;
+    this.customer = customer;
+    this.price = price;
+  }
 
-    public Album getAlbum() {
-        return album;
-    }
+  public Album getAlbum() {
+    return album;
+  }
 
-    public Customer getCustomer() {
-        return customer;
-    }
+  public Customer getCustomer() {
+    return customer;
+  }
 
-    public long getPrice() {
-        return price;
-    }
+  public long getPrice() {
+    return price;
+  }
 }

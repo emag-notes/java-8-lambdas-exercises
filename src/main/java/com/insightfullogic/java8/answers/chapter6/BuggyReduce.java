@@ -14,9 +14,9 @@ public static int multiplyThrough(List<Integer> linkedListOfNumbers) {
     // END buggyMultiplyThrough
     */
 
-    public static int multiplyThrough(List<Integer> numbers) {
-        return 5 * numbers.parallelStream()
-                          .reduce(1, (acc, x) -> x * acc);
-    }
+  public static int multiplyThrough(List<Integer> numbers) {
+    return 5 * numbers.parallelStream()
+      .reduce(1, (acc, x) -> x * acc);
+  }
 
 }

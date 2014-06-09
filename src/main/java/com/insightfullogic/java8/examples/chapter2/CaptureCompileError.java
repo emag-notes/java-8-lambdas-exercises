@@ -4,20 +4,20 @@ import javax.swing.*;
 
 public class CaptureCompileError {
 
-    private JButton button;
+  private JButton button;
 
-    public void error() {
-        String name = getUserName();
-        name = formatUserName(name);
-        // Uncommenting this line should cause a compile error:
-        // button.addActionListener(event -> System.out.println("hi " + name));
-    }
+  public void error() {
+    String name = getUserName();
+    name = formatUserName(name);
+    // Uncommenting this line should cause a compile error:
+    // button.addActionListener(event -> System.out.println("hi " + name));
+  }
 
-    private String formatUserName(String name) {
-        return name.toLowerCase();
-    }
+  private String formatUserName(String name) {
+    return name.toLowerCase();
+  }
 
-    private String getUserName() {
-        return "RICHARD";
-    }
+  private String getUserName() {
+    return "RICHARD";
+  }
 }

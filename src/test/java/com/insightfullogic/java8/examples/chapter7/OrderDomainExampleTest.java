@@ -14,21 +14,21 @@ import static org.junit.Assert.assertEquals;
  */
 public class OrderDomainExampleTest {
 
-    // BEGIN can_count_albums
-    @Test
-    public void canCountFeatures() {
-        OrderDomain order = new OrderDomain(asList(
-                newAlbum("Exile on Main St."),
-                newAlbum("Beggars Banquet"),
-                newAlbum("Aftermath"),
-                newAlbum("Let it Bleed")));
+  // BEGIN can_count_albums
+  @Test
+  public void canCountFeatures() {
+    OrderDomain order = new OrderDomain(asList(
+      newAlbum("Exile on Main St."),
+      newAlbum("Beggars Banquet"),
+      newAlbum("Aftermath"),
+      newAlbum("Let it Bleed")));
 
-        assertEquals(8, order.countFeature(album -> 2));
-    }
-    // END can_count_albums
+    assertEquals(8, order.countFeature(album -> 2));
+  }
+  // END can_count_albums
 
-    private Album newAlbum(String name) {
-        return new Album(name, emptyList(), emptyList());
-    }
+  private Album newAlbum(String name) {
+    return new Album(name, emptyList(), emptyList());
+  }
 
 }

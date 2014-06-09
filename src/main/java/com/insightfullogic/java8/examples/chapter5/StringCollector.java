@@ -12,49 +12,49 @@ import java.util.stream.Collector;
 public class StringCollector implements Collector<String, StringCombiner, String> {
 // END class_def
 
-    private static final Set<Characteristics> characteristics = EnumSet.of(Characteristics.UNORDERED);
+  private static final Set<Characteristics> characteristics = EnumSet.of(Characteristics.UNORDERED);
 
-    private final String delim;
-    private final String prefix;
-    private final String suffix;
+  private final String delim;
+  private final String prefix;
+  private final String suffix;
 
-    public StringCollector(String delim, String prefix, String suffix) {
-        this.delim = delim;
-        this.prefix = prefix;
-        this.suffix = suffix;
-    }
+  public StringCollector(String delim, String prefix, String suffix) {
+    this.delim = delim;
+    this.prefix = prefix;
+    this.suffix = suffix;
+  }
 
-    @Override
-    // BEGIN supplier
-public Supplier<StringCombiner> supplier() {
+  @Override
+  // BEGIN supplier
+  public Supplier<StringCombiner> supplier() {
     return () -> new StringCombiner(delim, prefix, suffix);
-}
-    // END supplier
+  }
+  // END supplier
 
-    @Override
-    // BEGIN accumulator
-    public BiConsumer<StringCombiner, String> accumulator() {
-        return StringCombiner::add;
-    }
-    // END accumulator
+  @Override
+  // BEGIN accumulator
+  public BiConsumer<StringCombiner, String> accumulator() {
+    return StringCombiner::add;
+  }
+  // END accumulator
 
-    @Override
-    // BEGIN combiner
-    public BinaryOperator<StringCombiner> combiner() {
-        return StringCombiner::merge;
-    }
-    // END combiner
+  @Override
+  // BEGIN combiner
+  public BinaryOperator<StringCombiner> combiner() {
+    return StringCombiner::merge;
+  }
+  // END combiner
 
-    @Override
-    // BEGIN finisher
-    public Function<StringCombiner, String> finisher() {
-        return StringCombiner::toString;
-    }
-    // END finisher
+  @Override
+  // BEGIN finisher
+  public Function<StringCombiner, String> finisher() {
+    return StringCombiner::toString;
+  }
+  // END finisher
 
-    @Override
-    public Set<Characteristics> characteristics() {
-        return characteristics;
-    }
+  @Override
+  public Set<Characteristics> characteristics() {
+    return characteristics;
+  }
 
 }

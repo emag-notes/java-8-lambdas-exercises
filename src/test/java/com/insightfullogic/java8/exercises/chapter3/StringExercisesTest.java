@@ -11,30 +11,30 @@ import static org.junit.Assert.assertFalse;
 
 public class StringExercisesTest {
 
-    @Test
-    public void noLowercaseLettersInAnEmptyString() {
-        assertEquals(0, StringExercises.countLowercaseLetters(""));
-    }
+  @Test
+  public void noLowercaseLettersInAnEmptyString() {
+    assertEquals(0, StringExercises.countLowercaseLetters(""));
+  }
 
-    @Test
-    public void countsLowercaseLetterExample() {
-        assertEquals(3, StringExercises.countLowercaseLetters("aBcDeF"));
-    }
+  @Test
+  public void countsLowercaseLetterExample() {
+    assertEquals(3, StringExercises.countLowercaseLetters("aBcDeF"));
+  }
 
-    @Test
-    public void suppoertsNoLowercaseLetters() {
-        assertEquals(0, StringExercises.countLowercaseLetters("ABCDEF"));
-    }
+  @Test
+  public void suppoertsNoLowercaseLetters() {
+    assertEquals(0, StringExercises.countLowercaseLetters("ABCDEF"));
+  }
 
-    @Test
-    public void noStringReturnedForEmptyList() {
-        assertFalse(StringExercises.mostLowercaseString(Collections.<String>emptyList()).isPresent());
-    }
+  @Test
+  public void noStringReturnedForEmptyList() {
+    assertFalse(StringExercises.mostLowercaseString(Collections.<String>emptyList()).isPresent());
+  }
 
-    @Test
-    public void findsMostLowercaseString() {
-        Optional<String> result = StringExercises.mostLowercaseString(Arrays.asList("a", "abc", "ABCde"));
-        assertEquals(result, Optional.of("abc"));
-    }
+  @Test
+  public void findsMostLowercaseString() {
+    Optional<String> result = StringExercises.mostLowercaseString(Arrays.asList("a", "abc", "ABCde"));
+    assertEquals(result, Optional.of("abc"));
+  }
 
 }

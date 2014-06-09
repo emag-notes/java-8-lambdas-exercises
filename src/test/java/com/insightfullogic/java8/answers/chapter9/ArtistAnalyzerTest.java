@@ -16,36 +16,36 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class ArtistAnalyzerTest {
 
-    @Parameterized.Parameters
-    public static Collection<Object[]> data() {
-        FakeLookupService lookupService = new FakeLookupService();
-        Object[][] data = new Object[][] {
-            { new CallbackArtistAnalyser(lookupService::lookupArtistName) },
-            { new CompletableFutureArtistAnalyser(lookupService::lookupArtistName) },
-        };
-        return Arrays.asList(data);
-    }
+  @Parameterized.Parameters
+  public static Collection<Object[]> data() {
+    FakeLookupService lookupService = new FakeLookupService();
+    Object[][] data = new Object[][]{
+      {new CallbackArtistAnalyser(lookupService::lookupArtistName)},
+      {new CompletableFutureArtistAnalyser(lookupService::lookupArtistName)},
+    };
+    return Arrays.asList(data);
+  }
 
-    private final ArtistAnalyzer analyser;
+  private final ArtistAnalyzer analyser;
 
-    public ArtistAnalyzerTest(ArtistAnalyzer analyser) {
-        this.analyser = analyser;
-    }
+  public ArtistAnalyzerTest(ArtistAnalyzer analyser) {
+    this.analyser = analyser;
+  }
 
-    @Test
-    public void largerGroupsAreLarger() {
-        assertLargerGroup(true, "The Beatles", "John Coltrane");
-    }
+  @Test
+  public void largerGroupsAreLarger() {
+    assertLargerGroup(true, "The Beatles", "John Coltrane");
+  }
 
-    @Test
-    public void smallerGroupsArentLarger() {
-        assertLargerGroup(false, "John Coltrane", "The Beatles");
-    }
+  @Test
+  public void smallerGroupsArentLarger() {
+    assertLargerGroup(false, "John Coltrane", "The Beatles");
+  }
 
-    private void assertLargerGroup(boolean expected, String artistName, String otherArtistName) {
-        AtomicBoolean isLarger = new AtomicBoolean(!expected);
-        analyser.isLargerGroup(artistName, otherArtistName, isLarger::set);
-        assertEquals(expected, isLarger.get());
-    }
+  private void assertLargerGroup(boolean expected, String artistName, String otherArtistName) {
+    AtomicBoolean isLarger = new AtomicBoolean(!expected);
+    analyser.isLargerGroup(artistName, otherArtistName, isLarger::set);
+    assertEquals(expected, isLarger.get());
+  }
 
 }

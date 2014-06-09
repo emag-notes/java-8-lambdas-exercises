@@ -5,26 +5,26 @@ import com.insightfullogic.java8.examples.chapter1.SampleData;
 
 public class FakeLookupService {
 
-    public Artist lookupArtistName(String name) {
-        sleepToSimulateLookupLatency();
+  public Artist lookupArtistName(String name) {
+    sleepToSimulateLookupLatency();
 
-        switch (name) {
-            case "The Beatles":
-                return SampleData.theBeatles;
+    switch (name) {
+      case "The Beatles":
+        return SampleData.theBeatles;
 
-            case "John Coltrane":
-                return SampleData.johnColtrane;
+      case "John Coltrane":
+        return SampleData.johnColtrane;
 
-            default:
-                throw new IllegalArgumentException("Unknown artist: " + name);
-        }
+      default:
+        throw new IllegalArgumentException("Unknown artist: " + name);
     }
+  }
 
-    private void sleepToSimulateLookupLatency() {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+  private void sleepToSimulateLookupLatency() {
+    try {
+      Thread.sleep(1000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
     }
+  }
 }

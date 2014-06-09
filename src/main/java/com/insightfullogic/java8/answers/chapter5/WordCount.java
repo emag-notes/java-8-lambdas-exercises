@@ -8,8 +8,8 @@ import static java.util.stream.Collectors.groupingBy;
 
 public class WordCount {
 
-    public static Map<String, Long> countWords(Stream<String> names) {
-        return names.collect(groupingBy(name -> name, counting()));
-    }
+  public static Map<String, Long> countWords(Stream<String> names) {
+    return names.collect(groupingBy(name -> name, counting()));
+  }
 
 }

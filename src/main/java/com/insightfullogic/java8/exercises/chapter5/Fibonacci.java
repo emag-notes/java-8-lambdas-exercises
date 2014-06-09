@@ -7,11 +7,11 @@ import java.util.Map;
 
 public class Fibonacci {
 
-    public Fibonacci() {
-    }
+  public Fibonacci() {
+  }
 
-    public long fibonacci(int x) {
-        return Exercises.replaceThisWithSolution();
-    }
+  public long fibonacci(int x) {
+    return Exercises.replaceThisWithSolution();
+  }
 
 }

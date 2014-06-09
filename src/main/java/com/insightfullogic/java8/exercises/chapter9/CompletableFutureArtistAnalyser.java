@@ -9,18 +9,18 @@ import java.util.function.Function;
 
 public class CompletableFutureArtistAnalyser implements ArtistAnalyzer {
 
-    private final Function<String, Artist> artistLookupService;
+  private final Function<String, Artist> artistLookupService;
 
-    public CompletableFutureArtistAnalyser(Function<String, Artist> artistLookupService) {
-        this.artistLookupService = artistLookupService;
-    }
+  public CompletableFutureArtistAnalyser(Function<String, Artist> artistLookupService) {
+    this.artistLookupService = artistLookupService;
+  }
 
-    public void isLargerGroup(String artistName, String otherArtistName, Consumer<Boolean> handler) {
-        Exercises.replaceThisWithSolution();
-    }
+  public void isLargerGroup(String artistName, String otherArtistName, Consumer<Boolean> handler) {
+    Exercises.replaceThisWithSolution();
+  }
 
-    private long getNumberOfMembers(String artistName) {
-        return Exercises.replaceThisWithSolution();
-    }
+  private long getNumberOfMembers(String artistName) {
+    return Exercises.replaceThisWithSolution();
+  }
 
 }

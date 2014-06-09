@@ -9,11 +9,11 @@ import static org.junit.Assert.assertEquals;
 
 public class BuggyReduceTest {
 
-    @Test
-    public void sample() {
-        List<Integer> numbers = Arrays.asList(1, 2, 3);
-        int result = BuggyReduce.multiplyThrough(numbers);
-        assertEquals(30, result);
-    }
+  @Test
+  public void sample() {
+    List<Integer> numbers = Arrays.asList(1, 2, 3);
+    int result = BuggyReduce.multiplyThrough(numbers);
+    assertEquals(30, result);
+  }
 
 }

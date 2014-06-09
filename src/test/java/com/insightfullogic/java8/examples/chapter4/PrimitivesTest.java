@@ -5,9 +5,9 @@ import org.junit.Test;
 
 public class PrimitivesTest {
 
-    @Test
-    public void albumStatistics() {
-        Primitives.printTrackLengthStatistics(SampleData.aLoveSupreme);
-    }
+  @Test
+  public void albumStatistics() {
+    Primitives.printTrackLengthStatistics(SampleData.aLoveSupreme);
+  }
 
 }

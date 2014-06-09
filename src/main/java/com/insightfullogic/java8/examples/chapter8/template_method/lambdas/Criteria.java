@@ -5,7 +5,7 @@ import com.insightfullogic.java8.examples.chapter8.template_method.ApplicationDe
 // BEGIN Criteria
 public interface Criteria {
 
-    public void check() throws ApplicationDenied;
+  public void check() throws ApplicationDenied;
 
 }
 // END Criteria
